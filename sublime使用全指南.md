@@ -1,6 +1,6 @@
 ---
 title: sublime text3使用介绍
-tags: 模板,小书匠
+tags: sublime text3
 grammar_cjkRuby: true
 ---
 ### sublime 编辑器的特点
