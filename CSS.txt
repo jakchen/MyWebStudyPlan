@@ -1,0 +1,253 @@
+网易微专业前端学习笔记http://www.jianshu.com/p/4ce1708ea072
+
+2、css
+html表达结构、css表达样式，
+样式和结构是分离的。
+
+加入方式：内嵌、内联、外联
+
+背景：颜色、图像background-image:url();background-repeat:no-repeat;background-position:top right;background-position:100px 100px;background-attachment:scroll或fixed;
+background：
+
+段落样式：字体颜色color;缩进text-indent：-2em或100%或in或cm或mm后px或pt;
+行间距line-height:2em或normal;对齐text-align:left或center或right或两端对齐:justify;英文单词间距word-spacing:10px;字符间距letter-spacing:10px;
+
+文本样式：text-transform:大写suppercase,小写lowercase,单词首字母大写capitalize;文本修饰text-decoration:下划线underline 上划线overline 删除线line-through 闪烁blink,空格white-space:normal,pre,pre-wrap,nowrap,pre-line;文字书写方向:direction:ltr,rtl;
+字体:font-family:serif,sans-serif,monospace, cursive,fantasy,hei,Times,TimesNR;
+文字修饰：font-style:normal或italic或obique,小的大写字母font-variant:small-caps;加粗font-weight:bold或100-900;大小font-size:10em;
+文字效果：阴影text-shadow:3px 5px 5px ;rgba(0,255,0,0.5)，text-shadow:3px 5px 5px ;rgba(0,255,0,0.5);
+轮廓outline-color：red;outline-style:solid或dotted或dashed或double或groove或ridge或inset或outset;outline-width:thin或10;
+
+3、css
+浏览器私有属性
+标签选择器、类选择器、id选择器、通配符选择器、属性选择器[att]、[att=val]、[att~=val]、[att|=val]、[att^="val"]、[att$=val]、[att*=val]、伪类选择器、:first-child、last-child、E F:nth-child(n)
+伪元素选择器::first-letter、::first-line
+选择器分组：
+继承、优先、层叠
+
+字体：
+font-size、font-family、font-weight、font-style、line-height
+  font
+color：transparent、rgba()
+对齐方式：text-align、vertial-align、text-indent、
+格式处理：white-space：normal|nowrap|pre|per-wrap|per-line
+word-wrap：normal|break-word文本换行
+文本修饰：text-shadow：none|
+  text-shadow：1px 2px #f00;
+  text-shadow：1px 2px 3px #f00;
+  text-shadow：1px 2px 3px;
+text-decoration:none|underline|overline|line-through
+
+高级设置：
+文本溢出text-overflow:clip|ellipsis
+  text-overflow:ellipsis;overflow:hidden;white-space:nowrap;
+cursor:鼠标手型
+inherit:强制继承
+
+盒模型：
+padding、margin、border、width、height
+圆角：border-radius：可以设8个值，也可以单独设置一个角
+溢出overflow:visible|hidden|scroll|auto
+box-sizing:centent-box|border-box
+内外阴影：box-shadow:4px 6px 3px 3px red;水平偏移，垂直偏移，（模糊半径，阴影大小）可省略
+box-shadow:inset 4px 6px 3px 3px red;
+轮廓：outline：5px dashed blue;不占空间，border外
+
+背景：
+background-color：transparent||<color> 透明|
+background-image：url(),url();
+background-repeat:repeat|repeat-x|repeat-y|round|space|no-repeat
+background-attachment:scroll|fixed|local
+background-position:left|center|top|bottom|%|px|
+  background-position:50px 50px;
+
+布局：
+display：block|inline|inline-block|none
+block:默认宽度为父元素宽度，可设置宽高，换行显示
+inline：默认宽度为内容宽度，不可设置宽高，同行显示
+inline-block：默认宽度为内容宽度，可设置宽高，同行显示，整块换行
+none:设置元素不显示
+visibility：hidden;仍占据文档位置
+
+块级元素水平居中：margin：0 auto;
+居中导航：ul:text-align:center;li,a:display:inline-block;
+元素叠加：z-index
+固定顶栏：fixed;
+遮罩:position:fixed;top:0;left:0;z-index:999;width:100%;height:100%;opacity:0.3;
+三行自适应布局：
+    .head{position: absolute;top: 0;left: 0;width: 100%;height: 100px;background-color: #ccc;}
+    .body{position: absolute;top: 100px;left: 0;bottom: 100px;right: 0;overflow: auto;}
+    .content{height: 2000px;}
+    .foot{position: absolute;bottom: 0;left: 0;width: 100%;height: 100px;background-color: #ccc;}
+两列布局：
+    .main{float: left;width: 660px;}
+    .side{float: right;width: 300px;}
+    .clearfix:after{content:'.';display: block;clear: both;height: 0;overflow: hidden;visibility: hidden;}
+两列自适应布局：
+三行自适应+两列自适应：
+
+定位：
+position：top|right|bottom|left|z-index;设置y元素边缘距离参照物边缘的距离，z-index设置Z轴上的排序；z-index栈
+position：static|relative|absolute|fixed
+relative:相对定位,仍在文档流中，参照物为元素本身;使用场景：作为绝对定位元素的参照物
+absolute：绝对定位，默认宽度为内容宽度，脱离文档流，参照物为第一个定位祖先/根元素;使用场景：轮播头图
+fixed：固定定位，默认宽度为内容宽度，脱离文档流，参照物为视窗
+
+float：left|right
+默认宽度为内容宽度，脱离文档流，向指定方向一直移动;float的元素在同一文档流;
+float元素半脱离文档流：对元素，脱离文档流，对内容，在文档流
+clear：both|left|right
+应用于后续元素、块级元素
+使用：1加空白元素(clear: both;height: 0;overflow: hidden;visibility: hidden;)，2父元素clearfix(.clearfix:after{content:'.';display: block;clear: both;height: 0;overflow: hidden;visibility: hidden;})
+
+flex：
+弹性容器flex container
+弹性元素flex item
+主轴main axis
+副轴cross axis
+创建容器:display:flex;
+弹性元素:在文档流中的子元素
+特性：
+1方向：
+弹性元素排列方向flex-direction：row|row-reverse|column|column-reverse
+换行flex-wrap:nowrap|wrap|wrap-reverse
+  flex-flow:<flex-direction>||<flex-wrap>建议使用
+显示顺序order:整数;初始值initial:0;
+
+2弹性：
+flex-grow:<bumber>,initial:0;
+flex-shrink:<number>,initial:1;
+flex-basis:main-size|<width>
+设置flex item的初始宽/高
+  flex:<flex-grow>||<flex-shrink>||<flex-basis>
+  initial:flex:0 1 main-size;
+
+3对齐：
+justify-content:flex-start|flex-end|center|space-between|space-around 设置main-axis方向上对齐方式
+align-items：flex-start|flex-end|center|baseline|stretch 设置cross-axis方向上对齐方式
+align-self：auto|flex-start|flex-end|center|baseline|stretch
+设置单个flex item在cross-axis方向上对齐方式
+align-content:flex-start|flex-end|center|space-between|space-around|stretch 设置cross-axis方向上 行 对齐方式
+
+2d变形：
+transform:none|<transform-function>+
+transform:translate(50%) rotate(45deg);
+翻转transform:rotate(45deg)
+偏移transform:translate(50px)
+transform:translate(50px,20%)
+translateX():
+translateY():
+缩放scale(<number>[,number]?)
+transform:scale(1.2,1.5)
+scaleX(<number>);
+scaleY(<number>);
+倾斜skew(<angle>[,<angle>]?)
+transform:skew(30deg);
+skewX:(<angle>);
+skewY:(<angle>);
+设置坐标轴心transform-origin:[left|center|right|top|bottom|<%>|<length>]
+
+  transform-origin:50% 50%;默认值
+  transform-origin:0 0;x0，y0
+  transform-origin:20%;x20%,y50%
+  transform-origin:right 50px 20px;x y50px,z20px,
+  transform-origin:top right 20px;
+
+3d变形:
+透视perspective:none|<length>
+透视位置perspective-origin：[left|center|right|top|<%>|<length>]
+  perspective-origin:50% 50%;默认值
+  perspective-origin:left bottom;
+  perspective-origin:50% -800px;
+  perspective-origin:right;
+
+3d移动translate3d(<translation-value>,<translation-value>,<length>)
+  translateX(translation-value)
+  translateY(translation-value)
+  translateZ(length)
+
+  transform:translate3d(10px,20%,50px);
+
+缩放scale3d(<number>,<number>,<number>);
+  scaleX(<number>)
+  scaleY(<number>)
+  scaleZ(<number>)
+
+  transform:scale3d(1.2,1.2,1)
+
+旋转rotate3d(<number>,<number>,<number>,<angle>);
+  rotaleX(<angle>)
+  rotaleY(<angle>)
+  rotaleZ(<angle>)
+
+  transform:rotate3d(1,0,0,45deg)
+
+保留3d空间transform-style:flat|preserve-3d flat扁平化（默认值）|保留3d空间
+
+背面不可见backface-visibility:visible|hidden
+
+动画：
+过渡transition-proterty:none|<single-transiton-property>
+
+<single-transiton-property>=all|<IDENT>
+transiton-property:none;
+transiton-property:all;
+transiton-property:left;
+transiton-property:left,color;
+
+过渡时间transition-duration:<time>[,<time>]*
+transition-duration:1s;
+transition-duration:1s,2s,3s;
+
+定义时间函数transition-timing-function:<single-transition-timing-function>[,<single-transition-timing-function>]
+改变运动速率
+<single-transition-timing-function>=ease|linear|ease-in|ease-out|ease-in-out|cubic-bezier(<number>,<number>,<number>,<number>)|step-start|step-end|steps(<integer>[,[star|end]]?)
+
+延时transition-delay:<time>[,time]*
+
+简写transsition:
+
+animation:
+
+animation-name:<single-animation-name>[,<single-animation-name>]
+<single-animation-name>=none|<IDENT>
+animation-name:none;
+animation-name:abd;
+animation-name:abc,abcd;
+
+过渡时间animation-duration:<time>[,<time>]*
+
+定义时间函数animation--timing-function:<single-timing-function>[,<single-timing-function>]
+<single-timing-function>=<single-transtion-timing-function>
+
+动画执行次数animation-iteration-count:<single-animation-iteration-count>[,<single-animation-iteration-count>]*
+<single-animation-iteration-count>=infinite|<number>无限次|
+animation-iteration-count：1;默认值
+
+定义动画方向animation-direction:<single-animation-direction>[,<single-animation-direction>]
+<single-animation-direction>=normal|reverse|alternate|alternate-reverse
+
+播放状态animation-play-state:running|paused
+animation-play-state:running,paused;
+
+动画延时animation-delay:<time>[,<time>]*
+
+是否保持第一帧设置、最后一帧状态animation-fill-mode:none|backwards|forwards|both*
+
+简写animation：
+
+关键帧定义@keyframes abc{
+  from{opacity:1;height:100px;}
+  to{opacity:0.5;height:200px;}
+}
+@keyframes abc{
+  0%{opacity:1;height:100px;}
+  100%{opacity:0.5;height:200px;}
+}
+@keyframes flash{
+  0%,50%,100%{opacity:1;}
+  25%,75%{opacity:0;}
+}
+调用animation:abc 0.5s both;
+animation:abc 0.5s both,flash, 0.5s both;
+

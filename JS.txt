@@ -1,0 +1,96 @@
+网易微专业前端学习笔记http://www.jianshu.com/p/4ce1708ea072
+浏览器：谷歌、火狐、safari、IE
+
+3javascript
+一种可以在浏览器中运行的脚本语言
+主要用来实现在浏览器端的动作：1用户交互、2数据处理
+
+HTML中的js：
+1在head中定义函数
+<script>
+document.writh("<h1>hello world<h1>");
+对象.动作
+</script>
+2<script src=""></script>
+3在相应标记中定义动作、事件响应代码
+<onXXX="alert('hi')">
+
+桌面上的js:
+node.js
+
+变量:var hello_1 = "";
+
+计算:
++-*/%;优先顺序()>++,-->*/%>+-
+作比较:==;!=;>;<;>=;<+
+
+判断:
+if(){};if(){}else{};可以简写，可以嵌套（建议：在if和else后面永远放一堆{}）
+多路分支:switch-case;
+switch(t){
+case1:
+alert();
+break;
+case2:
+alert();
+break;
+case3:
+alert();
+break;
+default：alert();break;
+};
+逻辑运算：与&&;或||;非!;真值表;优先级:所有的逻辑运算符的优先级低于关系运算符;!>&&>||
+条件运算符:N?n1:n2;
+
+循环：
+while(){};;循环嵌套;
+do{}while();例子：翻转数字;
+for(i=0;i<5;i=i+1){};计数循环
+无限循环:while(ture){};do{}while(ture);for(;;){};
+选择：如果有固定次数，用for；如果必须执行一次用do_while；其他情况用while
+
+循环控制：break:跳出循环;continue:跳过当前循环步，进入循环的下一轮
+
+函数：
+函数是一段代码，可以调用；js中有很多内置函数；
+定义函数：function fun_name(){};
+function fun_name(a,b){};
+调用:fun_name();fun_name(a,b);
+返回值：function fun_name(){return;};
+
+函数变量：var f = new Function("x","y","return x*y");等价于function f(x,y){return x*y;};函数可作为变量插入函数内
+
+变量空间：
+1定义在任何函数之外的变量属于全局(整个网页)空间，在网页的任何地方都可以使用；2定义在某个函数内部的变量属于局部(函数内部)空间，只在函数内部有效；3局部有和全局重名的变量时，采用局部的
+
+数组:
+var marks = new Array();marks[0]、marks[1]、marks[2]
+创建数组:var a = new Array();var a = new Array(size);var a = new Array(d1,d2,...,dn);var a = [d1,d2,...,dn];
+访问数组：[]运算符访问数组中的一个单元，a[0]可以读可以写；索引从0开始；a[x]=n直接创建了数组中的一个单元x，并且赋了值n;
+数组运算：数组长度a.length给出数组a的长度，是其中最大的下标+1；.length可写,a.length=2;a[a.length]=n；数组转换为字符串
+堆栈:.push();.pop()、队列:.push();.shift()、排序:从小到大.sort();倒序.reverse()；连接.concat();截取.slice(1,4);splice(开始位置,删除个数,插入元素...),可以删除，插入，替换
+
+对象:
+是一个属性集合，每个属性有自己的名字和值
+创建对象var o = new Object();
+var ciclr = {x:0,y:0,radius:2};
+访问添加对象属性ciclr.x = 0;对象里面也可以加对象
+删除对象属性delete ciclr.x;或ciclr.x=null;
+遍历对象属性for(var x in o){},属性x;属性值o[x]
+
+(构造函数this.o
+原型对象prototype)不会
+
+浏览器的全局对象是window，所有全局的变量实际上是window的成员
+window.document表示浏览器窗口的HTML页面；document.write()将内容写入页面；页面中的元素就是document里的成员
+
+事件处理器onMouseOver
+body事件：onLoad,onUnload
+简单对话框：alert();confirm();prompt();
+状态栏:status= ;defaultStatus= ;
+
+定时器事件setInterval('','1000');
+
+面向对象
+基本概念：类，对象；属性、方法
+基本特性：继承、
