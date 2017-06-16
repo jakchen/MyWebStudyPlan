@@ -1,5 +1,8 @@
 网易微专业前端学习笔记http://www.jianshu.com/p/4ce1708ea072
 
+省略CSS前缀的方法：使用prefix-free插件
+<script src="http://leaverou.github.com/prefixfree/prefixfree.min.js"></script>
+
 2、css
 html表达结构、css表达样式，
 样式和结构是分离的。
@@ -69,23 +72,6 @@ inline-block：默认宽度为内容宽度，可设置宽高，同行显示，�
 none:设置元素不显示
 visibility：hidden;仍占据文档位置
 
-块级元素水平居中：margin：0 auto;
-居中导航：ul:text-align:center;li,a:display:inline-block;
-元素叠加：z-index
-固定顶栏：fixed;
-遮罩:position:fixed;top:0;left:0;z-index:999;width:100%;height:100%;opacity:0.3;
-三行自适应布局：
-    .head{position: absolute;top: 0;left: 0;width: 100%;height: 100px;background-color: #ccc;}
-    .body{position: absolute;top: 100px;left: 0;bottom: 100px;right: 0;overflow: auto;}
-    .content{height: 2000px;}
-    .foot{position: absolute;bottom: 0;left: 0;width: 100%;height: 100px;background-color: #ccc;}
-两列布局：
-    .main{float: left;width: 660px;}
-    .side{float: right;width: 300px;}
-    .clearfix:after{content:'.';display: block;clear: both;height: 0;overflow: hidden;visibility: hidden;}
-两列自适应布局：
-三行自适应+两列自适应：
-
 定位：
 position：top|right|bottom|left|z-index;设置y元素边缘距离参照物边缘的距离，z-index设置Z轴上的排序；z-index栈
 position：static|relative|absolute|fixed
@@ -110,24 +96,53 @@ flex：
 特性：
 1方向：
 弹性元素排列方向flex-direction：row|row-reverse|column|column-reverse
+
 换行flex-wrap:nowrap|wrap|wrap-reverse
-  flex-flow:<flex-direction>||<flex-wrap>建议使用
+
+  简写：flex-flow:<flex-direction>||<flex-wrap>建议使用
+
 显示顺序order:整数;初始值initial:0;
+定义项目的排列顺序。数值越小，排列越靠前，默认为0。
 
 2弹性：
-flex-grow:<bumber>,initial:0;
-flex-shrink:<number>,initial:1;
+定义项目的放大比例flex-grow:<bumber>,initial:0;
+
+定义项目的缩小比例flex-shrink:<number>,initial:1;
+负值对该属性无效。
+
 flex-basis:main-size|<width>
 设置flex item的初始宽/高
+(定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。)
+
   flex:<flex-grow>||<flex-shrink>||<flex-basis>
-  initial:flex:0 1 main-size;
+  initial:flex:0 1 main-size;flex:0 1 auto;
 
 3对齐：
-justify-content:flex-start|flex-end|center|space-between|space-around 设置main-axis方向上对齐方式
-align-items：flex-start|flex-end|center|baseline|stretch 设置cross-axis方向上对齐方式
+设置项目在main-axis方向上对齐方式justify-content:flex-start|flex-end|center|space-between|space-around
+
+设置项目在cross-axis方向上对齐方式align-items：flex-start|flex-end|center|baseline|stretch
+
 align-self：auto|flex-start|flex-end|center|baseline|stretch
 设置单个flex item在cross-axis方向上对齐方式
+
 align-content:flex-start|flex-end|center|space-between|space-around|stretch 设置cross-axis方向上 行 对齐方式
+
+块级元素水平居中：margin：0 auto;
+居中导航：ul:text-align:center;li,a:display:inline-block;
+元素叠加：z-index
+固定顶栏：fixed;
+遮罩:position:fixed;top:0;left:0;z-index:999;width:100%;height:100%;opacity:0.3;
+三行自适应布局：
+    .head{position: absolute;top: 0;left: 0;width: 100%;height: 100px;background-color: #ccc;}
+    .body{position: absolute;top: 100px;left: 0;bottom: 100px;right: 0;overflow: auto;}
+    .content{height: 2000px;}
+    .foot{position: absolute;bottom: 0;left: 0;width: 100%;height: 100px;background-color: #ccc;}
+两列布局：
+    .main{float: left;width: 660px;}
+    .side{float: right;width: 300px;}
+    .clearfix:after{content:'.';display: block;clear: both;height: 0;overflow: hidden;visibility: hidden;}
+两列自适应布局：
+三行自适应+两列自适应：
 
 2d变形：
 transform:none|<transform-function>+
