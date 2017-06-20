@@ -87,6 +87,7 @@ clear：both|left|right
 使用：1加空白元素(clear: both;height: 0;overflow: hidden;visibility: hidden;)，2父元素clearfix(.clearfix:after{content:'.';display: block;clear: both;height: 0;overflow: hidden;visibility: hidden;})
 
 flex：
+多行自适应、多列自适应、间距自适应、任意对齐
 弹性容器flex container
 弹性元素flex item
 主轴main axis

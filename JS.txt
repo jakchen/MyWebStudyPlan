@@ -94,3 +94,168 @@ body事件：onLoad,onUnload
 面向对象
 基本概念：类，对象；属性、方法
 基本特性：继承、
+
+
+2、JS
+对一个值使用typeof操作符可能会返回下列某个字符串：
+
+“undefined”：表示这个值未定义；
+  出现场景：已声明未赋值的变量、获取对象不存在的属性、无返回值的函数的执行结果、函数的参数没有传入、void()
+“boolean”：表示这个值是布尔值；
+“string”：表示这个值是字符串；
+“number”：表示这个值是数值；
+“object”：表示这个值是对象或null；
+“function”：表示这个值是函数；
+
+内置对象
+Object
+
+3、DOM
+DOM Core
+DOM HTML
+DOM Style
+DOM Event
+文档树：
+  节点遍历
+  节点类型 Element_Node 、Text_Node
+  元素遍历
+
+节点操作：
+  获取节点
+    getElementById
+      element = document.getElementById(id)
+    getElementsByTagName  动态的
+      collection = element.getElementsByTagName(tagName)
+      获取所有后代元素element.getElementsByTagName("*")
+      collection[n]
+    getElementsByClassName  动态的
+      collection = element.getElementsByClassName(className)
+      collection = element.getElementsByClassName(className1 className2)
+      collection[n]
+    querySelector/All 不是动态的
+      list = element.querySelector/All(selector)
+  创建节点
+    element = document.createElement(TagName)
+  修改节点
+    element.textContent (IE9不支持)节点及其后代节点的文本内容
+    element.innerText
+  插入节点
+    element.appendChild(achild)
+    element.insertBefore(achild,referenceChild)
+  删除节点
+    element.removeChild(child)
+  innerHTML 节点的HTML内容  建议仅用于新节点
+    内存泄露
+    安全问题
+
+属性操作
+  每个html属性对应相应的DOM对象属性
+  property accessor
+  getAttribute/setAttribute
+  dataset
+property accessor 属性访问器
+  读
+    input.className
+    input["id"]
+  写
+    input.value="www.baidu.com"
+    input.disabled=true
+  类型
+    转换过的实用对象
+  特点
+    通用性-名字异常
+    扩展性差
+    是实用对象
+getAttribute/setAttribute
+  读
+    var attribute = element.getAttribute(attributeName)
+    input.getAttribute("class")
+  写
+    element.setAttribute(name,value)
+    input.setAttribute("value","www.baidu.com")
+    input.setAttribute("disabled","")
+  类型
+    属性字符串
+  特点
+    仅字符串
+    通用性好
+dateset  自定义属性
+  HTMLElement.dataset
+  data-*属性集
+  元素上保存数据
+  <div data-id="123456" data-account-name="wwq"
+        data-name="魏文庆" data-email="wwq123@163.com"
+        data-mobile="13524543878">wwq</div>
+  div.dataset.
+    id="123456"
+    accountName="wwq"
+
+样式操作
+  内嵌样式表
+    element.sheet.cssRules[1].style.lineHeight
+                             .selectorText
+  内联样式表
+    element.style.color
+  外部样式表
+    element.sheet
+更新样式
+  element.style.color = 'red'
+    更新一个属性需要一条语句
+    不是我们熟悉的CSS
+  element.style.cssText = 'border-cloor:red;color:red;'
+  样式混在逻辑中
+
+  更新class (推荐使用)
+    element.className += 'invalid'
+
+换肤：一次更新很多元素的样式
+  更换样式表
+    element.href=""
+  删除样式表
+  添加样式表
+
+获取样式
+ element.style.color (style获取到的不一定是实际样式)
+
+ var style = window.getComputedStyle(element)
+  window.getComputedStyle(element).color
+ IE9-使用element.currentStyle
+
+DOM事件
+点击一个DOM元素
+键盘按下一个键
+输入框输入内容
+页面加载完成
+  事件流
+    事件传递过程：
+      1、capture phase 捕获
+      2、targer phase 事件触发
+      3、bubble phase 冒泡过程
+  事件注册
+    事件注册
+      eventTarget.addEventListener(type,listener[,useCapture])
+        elem.addEventListener('click',functionName,false)
+        elem.onclick = functionName
+    取消事件注册
+      eventTarget.removeEventListener(type,listener[,useCapture])
+        elem.removeEventListener('click',functionName,false)
+        elem.onclick = null 不建议用
+    事件触发
+      eventTarget.dispatchEvent(type)
+        elem.dispatchEvent('click')
+    浏览器兼容型IE6、7、8
+      事件注册与取消
+        attchEvent/detachEvent
+      事件触发
+        fireEvent(e)
+      no capture无捕获阶段
+  事件对象
+    属性
+      type
+      target(srcElement)
+      currentTarget
+    方法
+      stopPtopagation
+      prevent
+  事件分类
+  事件代理

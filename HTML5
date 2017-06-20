@@ -7,6 +7,69 @@ html5shiv.js 引用代码必须放在 <head> 元素中，因为 IE 浏览器在�
 /*html5*/
 article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}
 
+新增的结构元素
+  section、article、aside、header、hgrounp、footer、nav、figure
+新增的其他元素
+  video、audio、canvas
+新增的input元素的类型
+  email、url、number、range、Date Pickers
+不再使用frame框架
+新增的属性和废除的属性：
+  表单相关的属性
+  链接相关的属性
+  其他属性
+废除的属性：
+全局属性：
+  contentEditable属性 true可编辑
+  designMode属性  整个页面是否可编辑
+  hidden属性
+  spellcheck属性
+  tabindex属性  获得焦点
+
+HTML5 新增的主体结构元素 ：
+<article> 元素代表文档、页面或应用程序中独立的、完整的、可以独自被外部引用的内容。它可以是一篇博客或者报刊中的文章，一篇论坛帖子、一段用户评论或独立的插件，或其他任何独立的内容。
+<article> 元素是可以嵌套使用的。
+<article> 元素可以用来表示插件
+sec
+
+HTML5 表单新增元素与属性:
+  form 属性和 formaction 属性
+表单内的从属元素必须书写在表单内部，而在 HTML5 中，可以把他们书写在页面上任何地方，然后为该元素指定一个 form 属性，属性值为该表单的 id，这样就可以声明该元素从属于指定表单了。
+
+在HTML4中，一个表单内的所有元素只能通过表单的action属性被统一提交到另一个页面，而在HTML5中可以为所有的提交按钮，增加不同的formaction属性，使单击不同的按钮时可以将表单提交到不同的页面
+
+  formmethod 和 formenctype 属性
+在HTML4中，一个表单内只能有一个action属性用来对表单内所有元素统一指定提交页面，所有表单内页只有一个method属性来统一指定提交方法。在HTML5中，可以使用formmethod属性来对每一个表单元素分别指定不同的提交方法。
+
+在HTML4中，表单元素具有一个enctype属性，改属性用于指定在表单发送到服务器之前应该如何对表单内的数据进行编码。
+在HTML5中，可以使用formenctype属性对表单元素分别指定不同的编码方式。
+  formenctype="text/plain" 将空格转换为 "+" 符号，但不编码特殊字符。
+  formenctype="multipart/form-data" 不对字符编码。当使用有文件上传控件的表单时，该值是必需的。
+  application/x-www-form-urlencoded 在发送前对所有字符进行编码（默认）。
+
+  formtarget 属性和 autofocus 属性
+在HTML4中，表单元素具有一个target属性，该属性用于指定在何处打开表单提交后所需要加载的页面。
+在HTML5中，可以对多个提交按钮分别使用formtarget属性来指定提交后在何处打开所需加载的页面。
+
+为文本框、选择框或按钮控件加上autofocus属性，当画面打开时，该控件自动获得光标焦点。<input type="text" autofocus>
+
+  required 属性和 labels 属性
+HTML5中新增的required属性可以应用在大多数输入元素上，在提交时，如果元素中内容为空白，则不允许提交，同时在浏览器中显示信息提示文字。required="required"
+
+在HTML5,为所有可使用标签的表单元素、button、select元素等，定义一个labels属性，属性值为一个NodeList对象，代表该元素所绑定的标签元素所构成的集合。
+<label> 标签为 input 元素定义标签（label）。
+label 元素不会向用户呈现任何特殊的样式。不过，它为鼠标用户改善了可用性，因为如果用户点击 label 元素内的文本，则会切换到控件本身。
+<label> 标签的 for 属性应该等于相关元素的 id 元素，以便将它们捆绑起来。
+
+HTML5 增强的页面元素：
+<figure> 标签用于对元素进行组合。提示：请使用 <figcaption> 元素为元素组添加标题。
+
+<details> 标签用于描述文档或文档某个部分的细节。提示：与 <summary> 标签配合使用可以为 details 定义标题。标题是可见的，用户点击标题时，会显示出 details。注释：details 元素可用于描述文档的任何部分。
+
+<mark> 标签定义带有记号的文本。请在需要突出显示文本时使用 <m> 标签。
+
+
+
 
 HTML5 定了 8 个新的 HTML 语义（semantic） 元素。所有这些元素都是 块级 元素。
 为了能让旧版本的浏览器正确显示这些元素，你可以设置 CSS 的 display 属性值为 block:
