@@ -107,6 +107,8 @@ body事件：onLoad,onUnload
 “object”：表示这个值是对象或null；
 “function”：表示这个值是函数；
 
+类型系统：
+标准类型：
 内置对象
 Object
 
@@ -256,6 +258,194 @@ DOM事件
       currentTarget
     方法
       stopPtopagation
-      prevent
+        event.stopPtopagation()(W3C) 阻止冒泡
+        event.cancelBubble=true(IE)
+        event.stopImmediatePropagation()(W3C)
+      preventDefault
+        默认行为
+          Event.preventDefault()(W3C)阻止默认行为
+          Event.returnValue=false(IE)
+      stopImmediatePropagation
   事件分类
+    鼠标事件MouseEvent
+      click         当用户按下并释放鼠标按键或其他方式“激活”元素时触发
+      contextmenu   可以取消的事件，当上下文菜单即将出现时触发。当前浏览器在鼠标右击时显示上下文菜单
+      dblclick      当用户双击鼠标时触发
+      mousedown     当用户按下鼠标按键时触发
+      mouseup       当用户释放鼠标按键时触发
+      mousemove     当用户移动鼠标时触发
+      mouseover     当鼠标进入元素时触发。relatedTarget(在IE中是fromElement)指的是鼠标来自的元素
+      mouseout      当鼠标离开元素时触发。relatedTarget(在IE中是toElement)指的是鼠标要去往的元素
+      mouseenter    类似mouseover，但不冒泡。IE将其引入，HTML5将其标准化，但尚未广泛实现
+      mouseleave    类似mouseout，但不冒泡。IE将其引入，HTML5将其标准化，但尚未广泛实现
+    MouseEvent对象
+      属性
+      clientX,clientY
+      screenX,screenY
+      ctrlKey,shiftKey,altKey,metaKey
+      button(0,1,2)
+    MouseEvent顺序
+      从元素A上方移过
+      点击元素
+      例子-拖拽div
+    WheelEvent滚轮事件
+      WheelEvent对象
+        属性
+          dalteMode
+          deltaX
+          deltaY
+          deltaZ
+  FocusEvent
+    blur 失去焦点
+    focus  获得焦点
+    focusin  将要获得焦点
+    focusout  将要失去焦点
+    属性
+      relatedTarget
+  InputEvent 输入事件
+    beforeinput
+    input/onpropertychange(IE)
+  KeyboardEvent键盘事件
+    keydown
+    keyup
+  KeyboardEvent对象
+    属性
+      key
+      code
+      ctrlKey,shiftKey,altKey,metaKey
+      repeat
+  其他事件
+    Event
+      load 加载完成
+      unload 文档退出
+      error
+      select
+      abort
+    window
+      load
+      unload
+      error
+      abort
+    Image
+      load
+      error
+      abort
+    UIEvent
+      resize
+      scroll
   事件代理
+
+多媒体和图形编程：
+audio video canvas
+<audio src=""></audio>
+  <sourse>.mp3</sourse>
+  .wav
+  .ogg
+<video src="" width="" height=""><video>
+控制多媒体播放：
+方法
+  load()加载媒体内容
+  play()开始播放
+  pause()暂停播放
+属性
+  playbackRate 播放速度0~4
+  currentTime播放进度 s为单位
+  volume音量 0~1
+  muted静音 ture false
+查询多媒体状态
+布尔值
+  paused 暂停
+  seeking 跳转
+  enden 播放完成
+
+  duration 媒体时长
+  initialTime 媒体开始时间
+
+多媒体相关事件(12个)
+loadstart 开始请求媒内容
+loadmetadata 媒体元数据已经加载完成
+canplay 加载了一些内容，可以开始播放
+play 调用play()，或设置了autoplay
+waiting 缓冲数据不够，暂停播放
+playing 正在播放
+
+canvas
+<canvas id="can" width="" height=""></canvas>不建议用css指定宽高
+渲染上下文
+ var canvas = document.getElementById('can');
+ var ctx = canvas.getContext('2d');
+globalCompositeOperation属性 全局的组合操作
+  ctx.globalCompositeOperation = "destination-over"
+基本绘图的步骤：
+清除画布-绘制图形-保存渲染上下文状态-绘制图形-恢复渲染上下文状态
+https//developer.mozilla.org/enUS/docs/Web/API/Canvas API/Tutorial
+
+BOM
+属性：
+navigator 浏览器信息
+ platform:"Win32"
+ userAgent:判断内核
+location 浏览器定位和导航
+  href
+  方法：
+    assign(url)载入新的url，记录浏览历史
+    repacle(url)载入新的url，不记录浏览历史
+    reload()重载当前页
+history 窗口浏览器历史
+  方法：
+  back()
+  forward()
+  go()
+screen 屏幕信息
+
+方法：
+alert(),confirem(),prompt() 三种对话框
+  alert()警告框
+  confirm()确定取消
+  prompt()输入框 确定取消
+setTimeout(),setInterval() 计时器
+open(),close()开新窗口，关闭窗口
+
+事件：
+load 文档和所有图片加载完毕时
+unload 离开当前文档时
+beforeunload 和unload类似，但它提供询问用户是否确定离开的机会
+resize 拖动改变浏览器窗口大小时
+scroll 拖动滚动浏览器时
+
+数据通信
+HTTP协议：
+请求报文格式
+响应报文格式
+常用HTTP方法：
+  get 从服务器获取一份文档 不包含主体
+  post 向服务器发送需要出来的数据 包含主体
+  put 将请求的主体播放存储在服务器上 包含主体
+  delete 从服务器上删除一份文档 不包含主体
+URL构成：
+HTTP版本：HTTP/1.1
+常见HTTP状态码：
+  200 请求成功。一般用于GET和POST方法。
+  301 资源移动
+  304 未修改
+  400 请求语法错误，服务器无法理解
+  404 未找到资源，可以设置个性404页面
+  500 服务器内部错误
+
+AJAX 异步js和xml
+Ajax通信流程
+XHR:
+  属性：
+    readyState：
+    status：
+    responseText:
+
+JS动画：gif、flash、css3、js
+帧
+帧频
+三要素：对象、属性、定时器
+  var timeoutID = setInterval(func,delay)
+  clearInterval(timeoutID)
+  var timeoutID = setTimeout(func,[delay]) 只执行一次
+  clearTimeout(timeoutID)
+  requestAnimationFrame

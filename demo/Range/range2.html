@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>range</title>
+</head>
+<body>
+<script>
+        function deleteChar() {
+            var div=document.getElementById("mydiv");
+            var textNode=div.firstChild;
+            var rangeObj=document.createRange();
+            rangeObj.setStart(textNode,1);
+            rangeObj.setEnd(textNode,5);
+            rangeObj.deleteContents();
+        }
+    </script>
+    <div id="mydiv" style="color: cornflowerblue">
+        12345测试删除文字功能aaaaaaaaa
+    </div>
+    <button onclick="deleteChar()">删除文字</button>
+</body>
+</html>
