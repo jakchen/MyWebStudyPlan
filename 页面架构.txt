@@ -1,0 +1,196 @@
+css rsset
+
+布局解决方案:
+
+水平居中：
+1、inline-block + text-align
+  子元素：inline-lock
+  父元素：text-align:center
+2、table + margin
+  子元素：display：table
+          margin：0 auto;
+3、absolute + transform
+  父元素：position:relative
+  子元素：position:absolute
+          left:50%;
+          transform:translateX(-50%);
+4、flex + justify-content
+  父元素：display:flex;
+          justify-content:center;
+5、父元素：display:flex;
+  子元素：margin：0 auto;
+
+垂直居中：
+1、table-cell + vartical-align
+  父元素：display:table-cell;
+          vertical-clign:middle;
+2、absolute + transform
+  父元素：position:relative;
+  子元素:position:absolue;
+        top:50%;
+        transform:translateY(-50%);
+3、flex + align-items
+  父元素：display:flex;
+          align-items:center;
+
+水平垂直居中:
+1、inline-block + text-align + table-cell + vartical-align
+先水平居中:
+  子元素：inline-lock
+  父元素：text-align:center
+再垂直居中：
+  父元素：display:table-cell;
+  vartical-align:middle;
+2、absolute + transform
+  父元素：position:relative;
+  子元素：position:absolute;
+          left:50%;
+          top:50%;
+          transform:translate(-50%,-50%);
+3、flex + justify-content + align-items
+  父元素：display:flex;
+          justify-content:cennter;
+          align-items:center;
+
+多列布局：
+1列定宽+1列自适应
+float + margin-left
+
+响应式布局：
+<meta name="viewport" content="width=device-didth,initial-scale=1.0,user-scalable=no">
+
+@media screen and (max-width:320px){}
+@media screen and (min-width:769px){}
+@media screen and (min-width:769px) and (max-width:1000px){}
+
+页面优化：
+1提升网页响应速度
+2对搜索引擎、屏幕阅读器友好
+3提高可读性，可维护性
+
+如何优化
+1减少请求
+  图片合并
+  css文件合并
+    多个css文件合并为一个
+    少量css样式内联
+    避免使用import的方式引入css
+2减少文件大小
+  减少图片大小
+    选择合适的图片格式
+      png半透明
+      jpg
+    压缩图片
+    css值缩写
+      margin、padding、border、border-radius、font、background
+      省略值为0的单位
+    颜色值最短表示
+    css选择器合并
+    文件压缩
+3提升页面性能
+  加载顺序
+    css文件放head中
+    js放body底部
+  减少标签数量
+  选择器长度
+  耗性能属性expression、filter、border-radius、box-shadow、gradients
+  图片设置宽高
+  所有表现用css实现
+    elm.className="active"
+    .active{}
+4根据规范，可读性，可维护性
+规范
+语义化
+尽量避免hack
+模块化
+注释
+
+规范：
+文件规范
+  文件分类
+    通用类
+    业务类
+  文件引入
+    行内样式 不推荐
+    外联引入 link
+    内联引入  style
+    避免在css中使用@import
+  文件本身
+    文件名 由小写字母、数字、中划线组成
+    编码 UTF-8
+注释规范
+  块状注释
+    统一缩进
+    在被注释对象之上
+  单行注释
+    文字两端需空格
+    在被注释对象之上
+  行内注释
+    文字两端需空格
+    在分号之后
+命名规范
+  分类命名
+    选择器分类
+    g-* 布局样式
+    m-* 模块样式
+  命名格式
+    大小写 建议:小写
+    长度 权衡长度和可读性
+  语义化命名
+    以内容语义命名
+书写规范
+  单行与多行
+  空格与分号
+    空格
+      缩进(2个或4个)
+      规则内空格
+    分号
+      保留最后一个属性值分号
+  属性顺序
+    根据属性的重要性按顺序书写
+    显示属性 》自身属性 》文本属性和其他修饰
+  hack方式
+    统一各浏览器的hack方式
+      IE6:_property:value
+      IE7:*property:value
+      /* IE7显-list{color:#000;*color:#888;_color:#fff;}
+    不要滥用hac示#888,IE6显示#fff,其他浏览器显示#00 */
+      例如：.mk
+  值格式
+    统一属性值
+      -color #fff
+      -url() ""或''后img.png
+其他规范
+  html规范
+    文档声明
+      <!DOCTYPE html>且首行定格开始
+    闭合
+      闭合标签、自闭合标签<input/>
+    属性
+      ""  <input checked="checked">
+    层级
+      用缩进体现层级，提高可读性
+      标签正确嵌套，但嵌套不宜太深
+    注释
+      注释头 /注释尾
+    大小写
+      标签、属性均小写
+  图片规范
+    文件名称
+      -语义
+      -长度
+    保留源文件
+    图片合并
+      尽可能使用sprite技术
+      sprite图片可按模块、业务、页面来划分
+
+模块化
+什么事模块化？
+一系列相关联的结构组成的整体
+带有一定语义，而非表现
+怎么做？
+以模块分类命名(如m-,md-)
+以一个主选择器开头(模块根节点)
+使用以主选择器开头的后代选择器(模块子节点)
+
+模块扩展

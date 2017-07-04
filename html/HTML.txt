@@ -1,0 +1,354 @@
+网易微专业前端学习笔记http://www.jianshu.com/p/4ce1708ea072
+所有html标签都可以加title
+
+HTML 布局
+  使用模板
+HTML 标题
+HTML 段落
+HTML 链接 target 属性 id 属性 创建电子邮件链接
+  <title> - 定义了HTML文档的标题
+  <base> - 定义了所有链接的URL
+  <base href="http://www.baidu.com/" target="_blank">
+  <meta> - 提供了HTML文档的meta标记
+HTML 图像
+  src alt height width 慎用图片
+  图片格式:gif、png、jpg,对齐：用css float设置,排列图像
+  页面内链接：先设置元素ID，<a href="#ID"></a>
+  <map> 定义图像地图
+  <area> 定义图像地图中的可点击区域
+
+  <img src="planets.gif" usemap="#planetmap">
+  <map name="planetmap">
+    <area shape="rect" coords="0,0,50,50" href="" alt="" />
+    <area shape="circle" coords="124,58,8" alt="" href="">
+  </map>
+HTML 水平线
+HTML 注释
+HTML 折行
+HTML 表格
+  caption标题 tr td th表头
+  边框属性
+    如果不定义边框属性，表格将不显示边框。
+  跨列colspan="2"
+  跨行rowspan="2"
+  单元格边距cellpadding="1"
+  单元格间距cellspacing="1"
+
+  <table border="1">
+    <caption>表格标题</caption>
+    <thead>表头
+      <tr>一行
+        <th>表头</th>
+      </tr>
+    </thead>
+    <tbody>内容
+      <tr>
+        <td>格子</td>
+        <td colspan="N">合并N列</td>
+        <td rowspan="N">合并N行</td>
+      </tr>
+    </tbody>
+    <tfoot>表尾</tfoot>
+  </table>
+
+  <table> 定义表格
+  <th> 定义表格的表头
+  <tr> 定义表格的行
+  <td> 定义表格单元
+  <caption> 定义表格标题
+  <colgroup> 定义表格列的组
+  <col> 定义用于表格列的属性
+  <thead> 定义表格的页眉
+  <tbody> 定义表格的主体
+  <tfoot> 定义表格的页脚
+
+  <colgroup> 标签用于对表格中的列进行组合，以便对其进行格式化。
+  通过使用 <colgroup>标签，可以向整个列应用样式，而不需要重复为每个单元格或每一行设置样式。
+  注释：只能在 <table> 元素之内，在任何一个 <caption> 元素之后，在任何一个 <thead>、<tbody>、<tfoot>、<tr> 元素之前使用 <colgroup> 标签。
+  提示：如果想对 <colgroup> 中的某列定义不同的属性，请在 <colgroup> 标签内使用 <col> 标签。
+  <colgroup>
+    <col span="1" style="background-color:red;width:100px;">
+    <col style="background-color:yellow">
+  </colgroup>
+
+HTML 无序列表
+  无序列表是一个项目的列表，此列项目使用粗体圆点（典型的小黑圆圈）进行标记。
+HTML 有序列表 start="50" type="A"/"a"/"I"/"i"
+  有序列表是一列项目，列表项目使用数字进行标记。
+HTML 自定义列表
+  自定义列表不仅仅是一列项目，而是项目及其注释的组合。
+  自定义列表以 <dl> 标签开始。每个自定义列表项以 <dt> 开始。每个自定义列表项的定义以 <dd> 开始。
+提示: 列表项内部可以使用段落、换行符、图片、链接以及其他列表等等。
+HTML 列表标签
+  <ol> 定义有序列表
+  <ul> 定义无序列表
+  <li> 定义列表项
+  <dl> 定义列表
+  <dt> 自定义列表项目
+  <dd> 定义自定列表项的描述
+
+HTML 可以通过 <div> 和 <span>将元素组合起来。
+HTML 区块元素
+  块级元素在浏览器显示时，通常会以新行来开始（和结束）。
+  实例: <h1>, <p>, <ul>, <table>
+HTML 内联元素
+  内联元素在显示时通常不会以新行开始。
+  实例: <b>, <td>, <a>, <img>
+HTML <div> 元素
+  HTML <div> 元素是块级元素，它可用于组合其他 HTML 元素的容器。
+  <div> 元素没有特定的含义。除此之外，由于它属于块级元素，浏览器会在其前后显示折行。
+  如果与 CSS 一同使用，<div> 元素可用于对大的内容块设置样式属性。
+  <div> 元素的另一个常见的用途是文档布局。
+  它取代了使用表格定义布局的老式方法。使用 <table>元素进行文档布局不是表格的正确用法。<table>元素的作用是显示表格化的数据。
+HTML <span> 元素
+  HTML <span> 元素是内联元素，可用作文本的容器
+  <span> 元素也没有特定的含义。
+  当与 CSS 一同使用时，<span> 元素可用于为部分文本设置样式属性。
+HTML 分组标签
+  <div> 定义了文档的区域，块级 (block-level)
+  <span> 用来组合文档中的行内元素， 内联元素(inline)
+
+HTML 表单
+  HTML 表单用于搜集不同类型的用户输入。
+  输入元素
+    <input> type="text"/"password"/"radio"/"checkbox"/"submit"/"reset"
+    文本域
+    密码字段
+    单选按钮
+    复选框
+    提交按钮
+    重置按钮
+  下拉列表
+    <select name="cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab" selected>Saab</option>
+    </select>
+  文本域
+    <textarea rows="10" cols="30">
+      我是一个文本框。
+    </textarea>
+  带边框的表单
+    <form action="">
+      <fieldset>
+      <legend>Personal information:</legend>
+      ...input
+      </fieldset>
+    </form>
+
+HTML 表单标签
+  New : HTML5新标签
+  <form> 定义供用户输入的表单
+  <input> 定义输入域
+  <textarea> 定义文本域 (一个多行的输入控件)
+  <label> 定义了 <input> 元素的标签，一般为输入标题
+  <fieldset> 定义了一组相关的表单元素，并使用外框包含起来
+  <legend> 定义了 <fieldset> 元素的标题
+  <select> 定义了下拉选项列表
+  <optgroup> 定义选项组
+  <option> 定义下拉列表中的选项
+  <button> 定义一个点击按钮
+  <datalist>New 指定一个预先定义的输入控件选项列表
+  <keygen>New 定义了表单的密钥对生成器字段
+  <output>New 定义一个计算结果
+
+  <form action="/login" method="post">
+    <fieldset>
+      <!--分区-->
+      <legend>分区标题</legend>
+      <input type="file" name="file">
+      <input type="checkbox" name="size" value="5">
+      <input type="radio" name="material" value="fushi">
+      <input type="text" name="description">
+      <input type="submit">
+      <input type="reset">
+      <button type="submit">提交</button>
+      <button type="reset">重置</button>
+      <label for="delivery">配送方式</label>
+      <select name="" id="delivery">
+        <option value="0">快递</option>
+        <option value="1">EMS</option>
+      </select>
+      <label for="feedback">意见反馈</label>
+      <textarea name="feedback" id="feedback" cols="30" rows="10"></textarea>
+    </fieldset>
+  </form>
+
+HTML 框架
+  <iframe>定义一个内联的iframe，在同一个浏览器窗口中显示不止一个页面。
+  语法：<iframe src="URL"></iframe>
+  height 和 width 属性用来定义iframe标签的高度与宽度。
+  frameborder 属性用于定义iframe表示是否显示边框。设置属性值为 "0" 移除iframe的边框:
+  iframe可以显示一个目标链接的页面，目标链接的属性必须使用iframe的属性
+    <iframe src="demo_iframe.htm" name="iframe_a"></iframe>
+    <p><a href="http://www.runoob.com" target="iframe_a">RUNOOB.COM</a></p>
+
+HTML head 元素
+  <head> 定义了文档的信息
+  <title> 定义了文档的标题
+  <base> 定义了页面链接标签的默认链接地址
+  <link> 定义了一个文档和外部资源之间的关系
+  <meta> 定义了HTML文档中的元数据
+  <script> 定义了客户端的脚本文件
+  <style> 定义了HTML文档的样式文件
+
+HTML <head> 元素
+  <head> 元素包含了所有的头部标签元素。在 <head>元素中你可以插入脚本（scripts）, 样式文件（CSS），及各种meta信息。
+  可以添加在头部区域的元素标签为: <title>, <style>, <meta>, <link>, <script>, <noscript>, and <base>.
+HTML <title> 元素
+  <title> 标签定义了不同文档的标题。
+  <title> 在 HTML/XHTML 文档中是必须的。
+  <title> 元素:
+  定义了浏览器工具栏的标题
+  当网页添加到收藏夹时，显示在收藏夹中的标题
+  显示在搜索引擎结果页面的标题
+HTML <base> 元素
+  <base> 标签描述了基本的链接地址/链接目标，该标签作为HTML文档中所有的链接标签的默认链接:
+HTML <link> 元素
+  <link> 标签定义了文档与外部资源之间的关系。
+  <link> 标签通常用于链接到样式表:
+HTML <style> 元素
+  <style> 标签定义了HTML文档的样式文件引用地址.
+  在<style> 元素中你也可以直接添加样式来渲染 HTML 文档:
+HTML <meta> 元素
+  meta标签描述了一些基本的元数据。
+  <meta> 标签提供了元数据.元数据也不显示在页面上，但会被浏览器解析。
+  META 元素通常用于指定网页的描述，关键词，文件的最后修改时间，作者，和其他元数据。
+  元数据可以使用于浏览器（如何显示内容或重新加载页面），搜索引擎（关键词），或其他Web服务。
+  <meta> 一般放置于 <head> 区域
+  为搜索引擎定义关键词:
+  <meta name="keywords" content="HTML, CSS, XML, XHTML, JavaScript">
+  为网页定义描述内容:
+  <meta name="description" content="免费 Web & 编程 教程">
+  定义网页作者:
+  <meta name="author" content="Runoob">
+  每30秒中刷新当前页面:
+  <meta http-equiv="refresh" content="30">
+HTML <script> 元素
+  <script>标签用于加载脚本文件，如： JavaScript。
+HTML <noscript> 元素
+  应对不支持脚本或禁用脚本的浏览器。
+
+HTML  文本格式化标签
+  <b> 粗体文本
+  <em> 着重文字
+  <i> 斜体字
+  <small> 小号字
+  <strong> 加重语气
+  <sub> 下标
+  <sup> 上标
+  <ins> 下划线
+  <del> 定义删除字
+  打字机等宽字体<tt>
+  高亮<mark>
+HTML "计算机输出" 标签
+  <code> 定义计算机代码
+  <kbd> 定义键盘码
+  <samp> 定义计算机代码样本
+  <var> 定义变量
+  <pre> 定义预格式文本
+HTML 引文, 引用, 及标签定义
+  <abbr> 定义缩写
+  <address> 定义地址
+  <bdo> 定义文字方向
+  <blockquote> 定义长的引用
+  <q> 定义短的引用语
+  <cite> 定义引用、引证
+  <dfn> 定义一个定义项目。
+
+文字格式：加粗<b>、斜体<i>、打字机等宽字体<tt>、小号字体<small>、删除<del>、下划线<ins>、上标<sup>、下标<sub>、高亮<mark>
+段落格式：强调<em><strong>、定义<dfn>、小段代码<code>、例子代码<samp>、用户输入<kbd>、变量<var>、反向排列文字<bdo dir="rtl">颠倒回来<bdi>、
+引用<cite>
+其他格式：地址<address>、大缩进<blockquote>、小引用<q>、预格式化文本<pre>
+
+HTML 属性
+  class 为html元素定义一个或多个类名（classname）(类名从样式文件引入)
+  id 定义元素的唯一id
+  style 规定元素的行内样式（inline style）
+  title 描述了元素的额外信息 (作为工具条使用)
+
+HTML 全局属性
+  New : HTML5 新属性。
+  accesskey 设置访问元素的键盘快捷键。
+  class 规定元素的类名（classname）
+  contenteditable New  规定是否可编辑元素的内容。
+  contextmenu New  指定一个元素的上下文菜单。当用户右击该元素，出现上下文菜单
+  data-*  New 用于存储页面的自定义数据
+  dir 设置元素中内容的文本方向。
+  draggable New  指定某个元素是否可以拖动
+  dropzone  New 指定是否将数据复制，移动，或链接，或删除
+  hidden  New hidden 属性规定对元素进行隐藏。
+  id  规定元素的唯一 id
+  lang  设置元素中内容的语言代码。
+  spellcheck  New 检测元素是否拼写错误
+  style 规定元素的行内样式（inline style）
+  tabindex  设置元素的 Tab 键控制次序。
+  title 规定元素的额外信息（可在工具提示中显示）
+  translate New  指定是否一个元素的值在页面载入时是否需要翻译
+  HTML head 元素
+
+HTML 颜色
+
+HTML 字符实体/转义字符/实体字符
+   空格 &nbsp; &#160;
+  < 小于号 &lt; &#60;
+  > 大于号 &gt; &#62;
+  & 和号 &amp; &#38;
+  " 引号 &quot; &#34;
+  ' 撇号  &apos; (IE不支持) &#39;
+  ￠ 分 &cent; &#162;
+  £ 镑 &pound; &#163;
+  ¥ 人民币/日元 &yen; &#165;
+  € 欧元 &euro; &#8364;
+  § 小节 &sect; &#167;
+  © 版权 &copy; &#169;
+  ® 注册商标 &reg; &#174;
+  ™ 商标 &trade; &#8482;
+  × 乘号 &times; &#215;
+  ÷ 除号 &divide; &#247;
+
+HTML URL 统一资源定位器
+  URL 是一个网页地址。
+  URL可以由字母组成，如"runoob.com"，或互联网协议（IP）地址： 192.68.20.50。
+  Web浏览器通过URL从Web服务器请求页面。
+  一个URL用于定位万维网上的文档。
+  scheme://host.domain:port/path/filename
+    scheme - 定义因特网服务的类型。最常见的类型是 http
+    host - 定义域主机（http 的默认主机是 www）
+    domain - 定义因特网域名，比如 runoob.com
+    :port - 定义主机上的端口号（http 的默认端口号是 80）
+    path-定义服务器上的路径（如果省略，则文档必须位于网站的根目录中）。
+    filename - 定义文档/资源的名称
+  常见的 URL Scheme
+    http 超文本传输协议 以 http:// 开头的普通网页。不加密。
+    https 安全超文本传输协议 安全网页，加密所有信息交换。
+    ftp 文件传输协议 用于将文件下载或上传至网站。
+    file   您计算机上的文件。
+
+CSS (Cascading Style Sheets) 用于渲染HTML元素标签的样式.
+CSS 可以通过以下方式添加到HTML中:
+  内联样式- 在HTML元素中使用"style" 属性
+  内部样式表 -在HTML文档头部 <head> 区域使用<style> 元素 来包含CSS
+  外部引用 - 使用外部 CSS 文件
+内联样式
+  当特殊的样式需要应用到个别元素时，就可以使用内联样式。
+  使用内联样式的方法是在相关的标签中使用样式属性。
+  样式属性可以包含任何 CSS 属性。
+内部样式表
+  当单个文件需要特别样式时，就可以使用内部样式表。
+外部样式表
+  当样式需要被应用到很多页面的时候，外部样式表将是理想的选择。
+
+HTML 脚本
+  HTML <script> 标签
+    <script> 标签用于定义客户端脚本，比如 JavaScript。
+    <script> 元素既可包含脚本语句，也可通过 src 属性指向外部脚本文件。
+    JavaScript 最常用于图片操作、表单验证以及内容动态更新。
+  HTML<noscript> 标签
+    <noscript> 标签提供无法使用脚本时的替代内容，比方在浏览器禁用脚本时，或浏览器不支持客户端脚本时。
+    <noscript>元素可包含普通 HTML 页面的body元素中能够找到的所有元素。
+    只有在浏览器不支持脚本或禁用脚本时，才会显示<noscript>元素中的内容
+  JavaScript可以直接在HTML输出:document.write("<p>1</p>");
+  JavaScript事件响应:onclick="myFunction()
+  JavaScript处理 HTML 样式:e.style.color="#ff0000";
+
+语义化：SEO、可访问性、可读性

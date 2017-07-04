@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SVG</title>
+</head>
+<body>
+  <svg width="120" height="120" viewBox="0 0 120 120" version="1.1">
+    <circle cx="60" cy="60" r="50"></circle>
+  </svg>
+  <svg width="120" height="120" viewBox="0 0 120 120"
+    xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="60" cy="60" rx="50" ry="25"/>
+</svg>
+<svg height="200" width="200" viewBox="0 0 220 220"
+    xmlns="http://www.w3.org/2000/svg">
+  <filter id = "filter">
+    <feSpecularLighting result="specOut"
+        specularExponent="20" lighting-color="#bbbbbb">
+      <fePointLight x="50" y="75" z="200"/>
+    </feSpecularLighting>
+    <feComposite in="SourceGraphic" in2="specOut"
+        operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+  </filter>
+  <circle cx="110" cy="110" r="100" style="filter:url(#filter)"/>
+</svg>
+</body>
+</html>

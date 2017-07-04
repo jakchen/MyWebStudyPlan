@@ -1,0 +1,192 @@
+context是一个封装了很多绘图功能的对象，获取这个对象的方法是
+  var context =canvas.getContext("2d");
+
+anvas元素绘制图像的时候有两种方法，分别是
+  context.fill()//填充
+  context.stroke()//绘制边框
+
+style:在进行图形绘制前，要设置好绘图的样式
+  context.fillStyle = "red";//填充的样式
+  context.strokeStyle = "blue";//边框样式
+  context.lineWidth//图形边框宽度
+
+颜色的表示方式:
+  直接用颜色名称:"red" "green" "blue"
+  十六进制颜色值: "#EEEEFF"
+  rgb(1-255,1-255,1-255)
+  rgba(1-255,1-255,1-255,透明度)
+
+绘制矩形
+  context.fillRect(x,y,width,height)
+  strokeRect(x,y,width,height)
+    x:矩形起点横坐标
+    y:矩形起点纵坐标
+    width:矩形长度
+    height:矩形高度
+
+清除矩形区域 context.clearRect(x,y,width,height)
+  x:清除矩形起点横坐标
+  y:清除矩形起点纵坐标
+  width:清除矩形长度
+  height:清除矩形高度
+
+HTML5使用路径:圆、move To与line To、贝赛尔曲线
+
+圆弧context.arc(x, y, r, starAngle,endAngle, anticlockwise)
+  x:圆心的x坐标
+  y:圆心的y坐标
+  r:圆的半径。
+  straAngle:开始角度，以弧度计。（弧的圆形的三点钟位置是 0 度）。
+  endAngle:结束角度
+  anticlockwise:是否逆时针（true）为逆时针，(false)为顺时针
+  提示：如需通过 arc() 来创建圆，请把起始角设置为 0，结束角设置为 2*Math.PI。
+  提示：请使用 stroke() 或 fill() 方法在画布上绘制实际的弧。
+
+路径 context.beginPath() context.closePath()
+  每次画路径都在前后加context.beginPath() 和context.closePath()就行
+
+绘制线段 context.moveTo(x,y) context.lineTo(x,y)
+  moveTo(x,y) 定义线条开始坐标
+  lineTo(x,y) 定义线条结束坐标
+  绘制线条我们必须使用到 "ink" 的方法，就像stroke()
+
+绘制贝塞尔曲线（贝济埃、bezier） context.bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y)
+绘制二次样条曲线 context.quadraticCurveTo(qcpx,qcpy,qx,qy)
+  cp1x:第一个控制点x坐标
+  cp1y:第一个控制点y坐标
+  cp2x:第二个控制点x坐标
+  cp2y:第二个控制点y坐标
+  x:终点x坐标
+  y:终点y坐标
+  qcpx:二次样条曲线控制点x坐标
+  qcpy:二次样条曲线控制点y坐标
+  qx:二次样条曲线终点x坐标
+  qy:二次样条曲线终点y坐标
+添加一个3次贝赛尔曲线路径。该方法需要三个点。 第一、第二个点是控制点，第三个点是结束点。起始点是当前路径的最后一个点，绘制贝赛尔曲线前，可以通过调用 moveTo() 进行修改。
+
+线性渐变 var lg= context.createLinearGradient(xStart,yStart,xEnd,yEnd)
+当我们使用渐变对象，必须使用两种或两种以上的停止颜色。
+线性渐变颜色lg.addColorStop(offset,color)
+  xstart:渐变开始点x坐标
+  ystart:渐变开始点y坐标
+  xEnd:渐变结束点x坐标
+  yEnd:渐变结束点y坐标
+  offset:设定的颜色离渐变结束点的偏移量(0~1)
+  color:绘制时要使用的颜色
+使用渐变，设置fillStyle或strokeStyle的值为lg 渐变，然后绘制形状，如矩形，文本，或一条线。
+
+径向渐变（发散）var rg=context.createRadialGradient(xStart,yStart,radiusStart,xEnd,yEnd,radiusEnd)
+径向渐变（发散）颜色rg.addColorStop(offset,color)
+  xStart:发散开始圆心x坐标
+  yStart:发散开始圆心y坐标
+  radiusStart:发散开始圆的半径
+  xEnd:发散结束圆心的x坐标
+  yEnd:发散结束圆心的y坐标
+  radiusEnd:发散结束圆的半径
+  offset:设定的颜色离渐变结束点的偏移量(0~1)
+  color:绘制时要使用的颜色
+
+图形变形
+1、平移context.translate(x,y)
+  x:坐标原点向x轴方向平移x
+  y:坐标原点向y轴方向平移y
+2、缩放context.scale(x,y)
+  x:x坐标轴按x比例缩放
+  y:y坐标轴按y比例缩放
+3、旋转context.rotate(angle)
+  angle:坐标轴旋转x角度（角度变化模型和画圆的模型一样）
+
+save：用来保存Canvas的状态。save之后，可以调用Canvas的平移、放缩、旋转、错切、裁剪等操作。
+restore：用来恢复Canvas之前保存的状态。防止save后对Canvas执行的操作对后续的绘制有影响。
+
+图形组合 context.globalCompositeOperation=type
+  source-over：默认值，表示新图覆盖在旧图之上
+  source-atop：只绘制旧图和重叠的部分，其他透明
+  source-in：只绘制新图的重叠部分，其他透明
+  source-out：只绘制新图，重叠部分和旧图透明
+  destination-over：表示旧图覆盖在新图之上
+  destination-atop：只绘制新图和重叠的部分，其他透明
+  destination-in：只绘制旧图的重叠部分，其他透明
+  destination-out：只绘制旧图，重叠部分和新图透明
+  lighter：旧图与新图都绘制，重叠部分混色处理
+  xor：旧图和新图重叠处做透明处理
+  copy：只绘制新图形，不绘制旧图形
+
+给图形绘制阴影
+  •globalAlpha： 设置或返回绘图的当前 alpha 或透明值
+该方法主要是设置图形的透明度，这里就不具体介绍。
+
+  context.shadowOffsetX :阴影的横向位移量（默认值为0）
+  context.shadowOffsetY :阴影的纵向位移量（默认值为0）
+  context.shadowColor :阴影的颜色
+  context.shadowBlur :阴影的模糊范围（值越大越模糊）
+
+绘制图像 context.drawImage(image,x,y)
+  image:Image对象var img=new Image(); img.src="url(...)";
+  x:绘制图像的x坐标
+  y:绘制图像的y坐标
+
+  function drawImage(){
+  var img = new Image();
+  img.onload = function (){
+    context.drawImage(img,10,0);
+  }
+  img.src="1.jpg"
+}
+
+context.drawImage(image,x,y,w,h)
+  image:Image对象var img=new Image(); img.src="url(...)";
+  x:绘制图像的x坐标
+  y:绘制图像的y坐标
+  w:绘制图像的宽度
+  h:绘制图像的高度
+context.drawImage(image,sx,sy,sw,sh,dx,dy,dw,dh):选取图像的一部分矩形区域进行绘制
+  image:Image对象var img=new Image(); img.src="url(...)";
+  sx：图像上的x坐标
+  sy：图像上的y坐标
+  sw：矩形区域的宽度
+  sh：矩形区域的高度
+  dx：画在canvas的x坐标
+  dy：画在canvas的y坐标
+  dw：画出来的宽度
+  dh：画出来的高度
+
+createjs
+CreateJS是基于HTML5开发的一套模块化的库和工具。
+ 基于这些库，可以非常快捷地开发出基于HTML5的游戏、动画和交互应用。
+
+图像平铺 context.createPattern(image,type)
+  type:
+  no-repeat:不平铺
+  repeat-x:横方向平铺
+  repeat-y:纵方向平铺
+  repeat:全方向平铺
+
+图像裁剪：context.clip()
+context.clip()只绘制封闭路径区域内的图像，不绘制路径外部图像，用的时候先创建裁剪区域再绘制图像（之后绘制的图形都会采用这个裁剪区域，要取消这个裁剪区域就需要用到保存恢复状态)
+
+绘制文字
+填充文字：context.fillText(text,x,y)
+绘制文字轮廓 context.strokeText(text,x,y)
+  text:要绘制的文字
+  x:文字起点的x坐标轴
+  y:文字起点的y坐标轴
+context.font:设置字体样式
+ctx.font="30px Arial";
+context.textAlign:水平对齐方式
+  start、end、right、center
+context.textBaseline:垂直对齐方式
+  top、hanging、middle、alphabetic、ideographic、bottom
+var length=context.measureText(text):计算字体长度(px)
+
+保存和恢复状态
+保存：context.save()调用该方法，会保存当前context的状态、属性（把他理解成游戏存档）
+恢复：context.restore()调用该方法就能恢复到save时候context的状态、属性（游戏回档）
+
+保存文件 canvas.toDataURL(type, encoderOptions)
+canvas.toDataURL("image/jpeg", 0.5);
+在canvas中绘出的图片只是canvas标签而已，并非是真正的图片，是不能右键，另存为的，我们可以利用canvas.toDataURL()这个方法把canvas绘制的图形生成一幅图片，生成图片后，就能对图片进行相应的操作了。
+  type 可选
+  图片格式，默认为 image/png
+  encoderOptions 可选
+  在指定图片格式为 image/jpeg 或 image/webp的情况下，可以从 0 到 1 的区间内选择图片的质量。如果超出取值范围，将会使用默认值 0.92。其他参数会被忽略。

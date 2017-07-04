@@ -200,28 +200,30 @@ skewY:(<angle>);
 
 保留3d空间transform-style:flat|preserve-3d flat扁平化（默认值）|保留3d空间
 
-背面不可见backface-visibility:visible|hidden
+旋转元素背面不可见backface-visibility:visible|hidden
 
 动画：
+transition:<过渡属性> <过渡时间> <过渡函数> <延迟时间>;
+  多个过渡用","隔开
+  只要样式发生变化，就能触发过渡
+
 过渡transition-proterty:none|<single-transiton-property>
 
 <single-transiton-property>=all|<IDENT>
-transiton-property:none;
-transiton-property:all;
-transiton-property:left;
-transiton-property:left,color;
+  transiton-property:none;
+  transiton-property:all;
+  transiton-property:left;
+  transiton-property:left,color;
 
-过渡时间transition-duration:<time>[,<time>]*
-transition-duration:1s;
-transition-duration:1s,2s,3s;
+过渡时间transition-duration:<time>[,<time>]* s 或 ms
+  transition-duration:1s;
+  transition-duration:1s,2s,3s;
 
 定义时间函数transition-timing-function:<single-transition-timing-function>[,<single-transition-timing-function>]
 改变运动速率
 <single-transition-timing-function>=ease|linear|ease-in|ease-out|ease-in-out|cubic-bezier(<number>,<number>,<number>,<number>)|step-start|step-end|steps(<integer>[,[star|end]]?)
 
 延时transition-delay:<time>[,time]*
-
-简写transsition:
 
 animation:
 

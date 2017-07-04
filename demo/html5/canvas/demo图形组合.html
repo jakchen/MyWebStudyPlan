@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>canvas-图形组合方式</title>
+<style>
+*{margin:0;padding:0;list-style: none;}
+#myCanvas{
+    background: #eee;
+    border:1px solid #666;
+}
+</style>
+</head>
+<body>
+    <!-- 画布宽高写在标签内部 -->
+    <canvas id="myCanvas"width="700" height="400">亲，别再用古董浏览器了
+    ！</canvas>
+</body>
+<script>
+    var cvs=document.getElementById('myCanvas');//画纸
+    var ctx=cvs.getContext('2d');//画笔
+
+    //1、画旧图
+    ctx.beginPath();
+    ctx.arc(200,200,100,0,2*Math.PI,false);
+    ctx.closePath();
+    ctx.fillStyle='red';
+    ctx.fill();
+
+    //2、图形组合方式设置
+    ctx.globalCompositeOperation='source-over';//默认-新图覆盖在在旧图上
+    // ctx.globalCompositeOperation='source-atop';//旧图和重叠部分,其他透明
+    // ctx.globalCompositeOperation='source-in';//只绘制新图重叠部分,其他透明
+    // ctx.globalCompositeOperation='source-out';//只绘制新图,重叠部分和旧图透明
+    // ctx.globalCompositeOperation='destination-over';//旧图覆盖在在新图上
+    // ctx.globalCompositeOperation='destination-atop';//新图和重叠部分,其他透明
+    // ctx.globalCompositeOperation='destination-in';//只绘制旧图重叠部分,其他透明
+    // ctx.globalCompositeOperation='destination-out';//只绘制旧图,重叠部分和新图透明
+
+    // ctx.globalCompositeOperation='lighter';//旧图和新图都绘制，重叠部分混色处理
+    // ctx.globalCompositeOperation='xor';//旧图和新图都绘制，重叠部分透明处理
+    // ctx.globalCompositeOperation='copy';//只绘制新图,旧图透明处理
+
+    //3、画新图
+    ctx.beginPath();
+    ctx.arc(320,200,100,0,2*Math.PI,false);
+    ctx.closePath();
+    ctx.fillStyle='blue';
+    ctx.fill();
+
+</script>
+</html>

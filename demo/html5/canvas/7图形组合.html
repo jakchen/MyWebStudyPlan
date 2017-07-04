@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>canvas</title>
+  <script>
+  function draw(id){
+    var canvas = document.getElementById(id);
+    var context = canvas.getContext("2d");
+    var oprtns = new Array(
+      "ource-over",
+      "source-atop",
+      "source-in",
+      "source-out",
+      "destination-over",
+      "destination-atop",
+      "destination-in",
+      "destination-out",
+      "lighter",
+      "copy",
+      "xor"
+      );
+    i=10;
+    context.fillStyle = "blue";
+    context.fillRect(10,10,60,60);
+    context.globalCompositeOperation = oprtns[i];
+    context.beginPath();
+    context.fillStyle = "red";
+    context.arc(60,60,30,Math.PI*2,false);
+    context.fill();
+
+  }
+  </script>
+</head>
+<body onload="draw('canvas')">
+  <canvas id="canvas" width="500" height="500"></canvas>
+  <!-- globalCompositeOperation = type 属性  -->
+<!--
+source-over：默认值，表示新图覆盖在旧图之上
+source-atop：只绘制旧图和重叠的部分，其他透明
+source-in：只绘制新图的重叠部分，其他透明
+source-out：只绘制新图，重叠部分和旧图透明
+destination-over：表示旧图覆盖在新图之上
+destination-atop：只绘制新图和重叠的部分，其他透明
+destination-in：只绘制旧图的重叠部分，其他透明
+destination-out：只绘制旧图，重叠部分和新图透明
+lighter：旧图与新图都绘制，重叠部分混色处理
+xor：旧图和新图重叠处做透明处理
+copy：只绘制新图形，不绘制旧图形
+-->
+</body>
+</html>
