@@ -1,0 +1,20 @@
+1～2周(简介，数据类型，表达式和操作符)
+
+如果你还不是很了解HTML和CSS，完成Codecademy上的web基础任务。
+阅读《JavaScript权威指南》或者《JavaScript高级程序设计》的前言和第1~2章。
+十分重要：在书中遇到的每个样例代码都要动手敲出来并且在火狐或Chrome浏览器控制台中跑起来、尽量蹂躏它（做各种试验）。也可以用jsfiddle，但不要用Safari浏览器。我建议用火狐搭配Firebug插件去测试和调试代码。浏览器控制台就是可以让你编写和运行JavaScript代码的地方。
+完成Codecademy JavaScript Track上的Introduction to JavaScript部分。
+阅读《JavaScript权威指南》第3~4章。或者阅读《JavaScript高级程序设计》第3~4章。你可以跳过位操作部分，在你的JavaScript生涯中一般不会用上这个。
+再次说明，记得要不时停下来把书本的代码敲到浏览器控制台里（或者JSFiddle）做各种测试，可以改变几个变量或者把代码结构修改一番。
+
+阅读《JavaScript权威指南》第5章。至于《JavaScript高级程序设计》则暂时没有阅读任务，因为前面已经把相关知识覆盖了。
+完成Codecademy JavaScript Track上的2~5部分。
+
+
+3~4周(对象，数组，函数，DOM，JQuery)
+
+以下三选一：
+阅读《JavaScript权威指南》第6章。
+阅读《JavaScript高级程序设计》第6章。注意：只需要看“理解对象”（Understanding Objects）部分。
+
+阅读《JavaScript权威指南》第7~8章或者《JavaScript高级程序设计》第5和7章。

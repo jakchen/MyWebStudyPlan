@@ -170,6 +170,9 @@ progress元素和meter元素
 提示：请结合 <progress> 标签与 JavaScript 一同使用，来显示任务的进度。
 注释：Internet Explorer 9 以及更早的版本不支持 <progress> 标签。
 <meter> 标签定义度量衡。仅用于已知最大和最小值的度量。
+  <meter value="3" min="0" max="10">3/10</meter>
+  <meter value="0.8">60%</meter>
+  IE 浏览器不支持 meter 标签。
 
 ol、dl、cite、small
 

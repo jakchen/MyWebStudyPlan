@@ -114,7 +114,7 @@ CSS3选择器
   border-image 边框图片
     border-image:url() 1 2 3 4 repeat repeat;
     1234上右下左切九宫格
-    水平 垂直平铺方式
+    水平垂直平铺方式(平铺repeated、铺满rounded、拉伸stretched)
 
   border-radius 圆角边框
     可以设置1~4个数值,也可以加/，
@@ -160,6 +160,7 @@ CSS3选择器
   字体
     font-family
     font-size
+    font-size-adjust number : 为字体序列中所有字体强迫指定同一尺寸
     font-style  属性值normal italic oblique
     font-variant 属性值normal small-caps(小型大写字母)
     font-weight 属性值normal bold bolder lighter
@@ -269,9 +270,39 @@ CSS3选择器
   对盒子使用阴影
     box-shadow
 
+布局：
+  display：block|inline|inline-block|none
+  block:默认宽度为父元素宽度，可设置宽高，换行显示
+  inline：默认宽度为内容宽度，不可设置宽高，同行显示
+  inline-block：默认宽度为内容宽度，可设置宽高，同行显示，整块换行
+  none:设置元素不显示,不占据文档位置
+  visibility：hidden;仍占据文档位置
+
+定位：
+  position：top|right|bottom|left|z-index;设置y元素边缘距离参照物边缘的距离，z-index设置Z轴上的排序,大在前面；z-index栈
+
+  position：static|relative|absolute|fixed
+
+  relative:相对定位,仍在文档流中，参照物为元素本身;使用场景：作为绝对定位元素的参照物
+
+  absolute：绝对定位，默认宽度为内容宽度，脱离文档流，参照物为第一个定位祖先/根元素;使用场景：轮播头图
+
+  fixed：固定定位，默认宽度为内容宽度，脱离文档流，参照物为视窗
+
+  float：left|right
+  默认宽度为内容宽度，脱离文档流，向指定方向一直移动;float的元素在同一文档流;
+  float元素半脱离文档流：对元素，脱离文档流，对内容，在文档流
+
+  clear：both|left|right
+  应用于后续元素、块级元素
+    使用：
+      1加空白元素(clear: both;height: 0;overflow: hidden;visibility: hidden;)，
+      2父元素clearfix(.clearfix:after{content:'.';display: block;clear: both;height: 0;overflow: hidden;visibility: hidden;})
+
 伸缩布局盒模型flex
   Flex布局的主要思想是让容器能使其子元素的宽高（或其他属性）能够以最好的方式去填充可用空间（主要是去适应不同的设备跟分辨率）。
   Flexbox布局常用于小的应用程序组件之中
+  能动态修改子元素宽高，以满足在不同尺寸屏幕下的恰当布局
 
   设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。
   弹性容器flex container
@@ -435,4 +466,97 @@ CSS3选择器
 
     保留3d空间transform-style:flat|preserve-3d flat扁平化（默认值）|保留3d空间
     应用在3D变换的兄弟元素们的父元素上
+
+过渡
+  transition:<过渡属性> <过渡时间> <过渡函数> <延迟时间>;
+  多个过渡用","隔开
+  从一种样式转换成另一种样式,只要样式发生变化，就能触发过渡
+
+  指定过渡属性 transition-proterty:none | all | 其他属性
+  过渡时间 transition-duration:<time>[,<time>]* s 或 ms
+  定义时间函数 transition-timing-function:ease|linear|ease-in|ease-out|ease-in-out|cubic-bezier(<number>,<number>,<number>,<number>)|step-start|step-end|steps(<integer>[,[star|end]]?)
+   延时 transition-delay:<time>[,time]*
+
+动画 8个子属性
+  制作动画步骤
+    1：用关键帧声明一个动画
+      @keyframes animation-name{0%{属性和值}100%{属性和值}}
+    2：在animation 属性中调用关键帧声明的动画
+
+  animation:rotate 5s 5s linear infinite both;
+
+    调用动画 animation-name:none | IDENT
+      none:默认值,没有任何动画效果，可用于覆盖任何动画
+      IDENT：由@keyframes创建的动画名称
+
+        例如
+        animation-name:none;
+        animation-name:abd;
+        animation-name:abc,abcd;
+
+    动画播放时间 animation-duration:<time>[,<time>]* 单位为s;默认值为0，也即没有动画效果
+
+    动画播放方式 animation--timing-function:ease linear ease-in ease-out ease-in-out cubic-bezier(a,b,c,d),ease linear ease-in ease-out ease-in-out cubic-bezier(a,b,c,d)
+
+    动画延时 animation-delay:<time>[,<time>]*
+
+    动画执行次数 animation-iteration-count:infinite(无限次)|<number> 默认值1
+
+    定义动画方向 animation-direction:normal|reverse|alternate|alternate-reverse
+      normal  默认值。每次循环都向前播放
+      reverse 动画反向播放。
+      alternate 动画在奇数次正向播放，在偶数次反向播放。
+      alternate-reverse 动画在奇数次反向播放，在偶数次正向播放。
+
+    播放状态 animation-play-state:running|paused
+      running 默认值 播放
+      paused 暂停
+
+    是否保持第一帧设置、最后一帧状态animation-fill-mode:none|backwards|forwards|both*
+      none：默认值。不设置对象动画之外的状态
+      forwards：设置对象状态为动画结束时的状态
+      backwards：设置对象状态为动画开始时的状态
+      both：设置对象状态为动画结束或开始的状态
+
+响应式Responsive设计
+  媒体类型 all screen print
+
+  <link type="text/css" rel="stylesheet" href="style.css" media="only screen and (max-width:640px)">
+  @media screen and (max-width: 600px) {}
+
+  @media (min-width: 768px) {}
+  @media (min-width: 992px) {}
+  @media (min-width: 1200px) {}
+
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  响应式图片？
+    img{max-width:100%;}
+
+使用服务器端字体
+  字体下载
+    http://www.dafont.com/
+    https://fonts.google.com/
+
+  格式
+    TureTpe(.ttf)格式
+    OpenType(.otf)格式
+    Web Open Font Format(.woff)格式
+    Embedded Open Type(.eot)格式
+    SVG(.svg)格式
+
+  @font-face{
+  font-family:自定义字体名称;
+  src:url("")format("truetype");/* ttf otf */
+  font-weight:
+  font-style:
+  font-size:
+  font-stretch：
+  }
+  @font-face{
+  font-familt:Arial;
+  scr:local("Arial"),
+      url("");
+  }
+
 

@@ -1,0 +1,79 @@
+高级语法
+  继承
+
+列表
+  list-style  简写列表项
+  list-style-image  列表项图像
+    list-style-image:url("icon.gif");
+  list-style-position 列表标志位置
+    list-style-position:inside;
+    list-style-position:outside;
+  list-style-type 列表类型
+    list-style-type:circle;
+    list-style-type:decimal;
+表格
+  表格边框
+    border
+  折叠边框
+    border-collapse: collapse;
+  表格宽高
+    width
+    height
+  表格文本对齐
+    text-align: center;
+  表格内边距
+    padding
+  表格颜色
+    background-color: aqua;
+
+css常用操作
+对齐
+  对齐操作
+    使用margin水平对齐
+    使用position左右对齐
+    使用float左右对齐
+  尺寸操作
+    width
+    height
+    line-height
+    max-width 该属性值会对元素的宽度设置一个最高限制。因此，元素可以比指定值窄，但不能比其宽。
+    最小宽度(min-width)与最大宽度(max-width)用于设置图片最小最大宽度限制比较多。
+    max-height
+    min-width
+    min-height
+  分类操作
+    clear
+    position
+    float
+    cursor 规定当指向某元素之上时显示的指针类型
+    display 设置是否及如何显示元素
+    visibility 设置元素是否可见
+  导航栏
+    垂直导航栏
+    水平导航栏
+    导航栏效果
+  图片操作
+
+
+  clip
+    clip属性只能在元素设置了“position:absolute”或者“position:fixed”属性起作用。clip 属性剪裁绝对定位元素。
+    而所有的数值都表示位置，且是相对于原始元素的左上角而言的。
+    rect(<top>, <right>, <bottom>, <left>);
+    clip:rect(0px,60px,200px,0px);
+瀑布流效果
+
+修改文字种类而保存字体尺寸不变
+font-size-adjust
+
+老式浏览器支持HTML5
+老式浏览器支持CSS3
+
+SVN介绍
+subversion是一个开发源代码的版本控制系统，采用了分支管理系统。
+TortoiseSVN免费开源客户端
+SVN安装
+SVN应用
+
+https://codepen.io
+
+

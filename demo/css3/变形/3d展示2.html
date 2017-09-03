@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrapper{
+            width: 500px;
+            margin: 200px auto;
+            perspective: 4000px;
+        }
+        .item{
+            width: 310px;
+            height: 100px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform .9s;
+        }
+        .item:hover{
+            transform:translateZ(-155px) translateX(155px) rotateY(-90deg) ;
+        }
+        .item img{
+            width: 310px;
+            height: 100px;
+            position: absolute;
+            border: 1px solid red;
+            /*transition: all .6s;*/
+        }
+        .info{
+            position: absolute;
+            display: block;
+            width: 310px;
+            height: 100px;
+            border: 1px solid red;
+            transform: rotateY(90deg) translateZ(155px) translateX(-155px);
+            /*transition: all .6s;*/
+            background: rgb(236,241,244);
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="item">
+        <img src="chimpified.jpeg" alt="">
+        <span class="info">这里是产品信息</span>
+    </div>
+</div>
+</body>
+</html>

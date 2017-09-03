@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script type="text/javascript" src="http://leaverou.github.com/prefixfree/prefixfree.min.js"></script>-->
+    <style>
+        .stage {
+            width: 300px;
+            height: 300px;
+            float: left;
+            margin: 15px;
+            position: relative;
+            background-color: #eeeeef;
+        }
+        .container {
+            position: relative;
+            height: 230px;
+            width: 100px;
+            top: 50%;
+            left: 50%;
+            margin: -100px 0 0 -50px;
+        }
+        .side {
+            font-size: 20px;
+            font-weight: bold;
+            height: 100px;
+            line-height: 100px;
+            color: #fff;
+            background-color: aquamarine;
+            position: absolute;
+            text-align: center;
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            width: 100px;
+        }
+        .top{
+            background-color: darkolivegreen;
+            transform: translate(0,-10px) skew(45deg,-30deg) scale(0.9,0.9);
+        }
+        .left{
+            background-color: bisque;
+            transform: translate(-45px,75px) skew(0,45deg) scale(0.9,1.2);
+        }
+        .right{
+            transform: translate(45px,95px) skew(0,-30deg) scale(0.9,1.2);
+        }
+    </style>
+</head>
+<body>
+<div class="stage">
+    <div class="container">
+        <div class="side top">1</div>
+        <div class="side left">2</div>
+        <div class="side right">3</div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,216 @@
+声明变量
+  (区分大大小写，不允许空格和标点符号，除了$)
+  (允许字母、数字、$、和下划线，第一个字符不允许数字)
+  (下划线或驼峰格式命名变量)
+  var a;a=33;
+  var a,b;
+  var a=33;
+  var a = 33,b='我';
+
+数据类型
+  标量(任意时刻只能有一个值)
+    字符串
+      (字符转义\)
+    数字
+      (正负数，0 ，浮点数、负数浮点数)
+    布尔
+      false true
+  数组
+    数组元素(字符串、数字、布尔值、变量、其他数组元素、其他数组、对象)
+    数组长度length
+
+    声明数组
+      var a = Array();
+      var a = Array(4);
+    填充数组(index从0开始)
+      a[index] = element;
+    获取数组元素
+      a[index]
+
+    简单方式
+      var a = Array("1","2","3","4");或者
+      var a= ["1","2","3","4"]
+
+    关联数组(不推荐使用)
+      var a = Array();
+      a["name"] = "john";
+      a["year"] = 33;
+      a["living"] = false;
+
+  对象
+    创建对象
+      var a = Object();
+    对象属性
+      a.name = "jhon";
+      a.year = 33;
+
+    或者创建对象
+      var a = {name:"jhon",year:33};
+  空
+  未定义
+
+  null可清除变量
+
+操作
+  算术操作(操作符+-/* ++ -- )
+    括号把不同操作分隔开来，避免歧义
+    变量可以包含操作
+    可以对变量进行操作
+    +可用于拼接字符串、变量、字符串和数值
+  +=(一次完成加法和辅助 或 拼接或赋值)
+
+条件语句(条件满足，语句执行)
+  if(条件){语句}
+  条件的求值结果永远是一个布尔值，true时，语句执行
+
+  if(条件){语句}else{语句}
+
+  只要一条语句时，可简写
+    if{true}alert("true");
+
+比较操作符(> < >= <= == === != !==)
+逻辑操作符(操作对象是布尔值)
+  逻辑与 $$
+  逻辑或 ||
+  逻辑非 ! (作用于单个逻辑操作数)
+
+循环语句
+  while(条件){语句}
+    (条件满足，语句循环执行，内部必须发生一些会影响循环控制条件的事情)
+  do{语句}while(条件)
+    (语句内代码至少执行一次)
+
+  for(var i=1;i<10;i++){语句}
+    相比while循环，循环控制结构更清晰
+    用于对某个数组里的全体元素进行遍历处理
+
+函数
+  一组允许在代码里随时调用的语句
+  函数命名：用驼峰格式，变量命名：用下划线格式
+  定义函数
+    function name(){语句}
+  调用函数
+    name();
+
+  接收参数(传递给函数的数据)
+    function name(参数){语句}
+    function name(参数1，参数2){语句}
+    在函数内部，可以像使用普通变量那样使用任何一个参数；
+    调用函数
+      name(参数)
+      name(参数1，参数2)
+  返回数据
+    function name(参数1，参数2){语句;return 数据;}
+
+  可以把一个函数的调用结果赋给一个变量
+
+  内建函数
+    alert()
+
+变量作用域
+  全局变量：作用域是整个脚本(包括函数内部)
+  局部变量：作用域仅限于某个特定的函数
+  用var声明的变量，是一个局部变量，只存在这个函数的上下文中；
+  没有用var声明的变量，是全局变量，
+
+对象(自包含的数据集合)
+    属性：隶属于某个特点对象的变量
+    方法：只要某个特定对象才能调用的函数
+  访问对象数据
+    对象.属性
+    对象.方法()
+  实例
+    var a = new 对象名；
+
+  用户定义对象
+    var a = new 对象名；
+  内建对象
+    数组 var a = new Array();其实是在创建一个Array对象的新实例
+    Math对象
+      round();把十进制数值舍入为一个与之最接近的整数
+    Date对象
+      getDay()
+      getHours()
+      getMonths()
+
+  宿主对象
+    Form
+    Image
+    Element
+    document
+
+    window BOM
+
+DOM
+  文档：节点构成的集合，document对象
+  对象：3种对象，这里说的是document对象
+  模型：地图
+
+  节点(一份文档就是一棵节点树，文档中的每个元素节点都是一个对象)
+    元素节点
+    文本节点
+    属性节点
+
+  获取元素(可以赋值给一个变量)
+    getElementById("id");返回一个有特定id的元素节点对应的对象
+    它是document对象的方法；
+
+    getElementByTagName("h1");返回一个对象数组，可以使用"*",
+      可以与getElementById(id)组合使用
+
+    getElementByClassName("className"),返回一个具有相同类名的数组；
+      可以与getElementById(id)组合使用
+      查找带有多个类名的元素，用空格分隔类名(类名顺序不重要，就算元素带有更多的类名也没关系)
+
+    typeof();验证字符串，数值，函数，布尔值，对象
+
+  元素节点对象的属性和方法:
+    获取属性
+      getAttribute("属性");
+      如果没有，返回null值
+
+    设置属性(可以创建属性并设置值，也可以覆盖掉原有属性值)
+      setAttribute("属性"，"属性值")
+
+    DOM工作模式：先加载文档的静态内容，再动态刷新，动态刷新不影响文档的静态内容。
+
+事件处理函数
+  作用：在特定事件发生时调用特定的js代码。
+
+childNodes属性
+  element.childNodes
+  element.childNodes.length
+  用来获取任何一个元素的所有子元素，它是一个数组。
+  返回的数组包含所有类型的节点。(空格和换行符也被解释为节点)
+
+nodeType属性
+  验证节点类型
+  node.nodeType
+    元素节点的nodeType属性值是1
+    属性节点的nodeType属性值是2
+    文本节点的nodeType属性值是3
+nodeValue属性
+  node.nodeValue
+  改变文本节点的值(用来得到和设置一个节点的值)
+
+firstChid和lastChild属性
+  node.firstChild 相当于 node.childNodes[0]
+  node.laseChild 相当于 node.childNodes[node.childNodes.length-1]
+
+document.write()
+innerHTML
+createElemtnt方法(创建元素节点)
+  document.createElement(nodeName);
+  例如：var a = document.createElement("p");
+appendChild方法(插入节点)
+  parent.appendChild(child);
+  例如：var b = document.getElementById("id");
+        b.appendChild(a)
+createTextNode方法(创建文本节点)
+  var txt = document.createTextNode("hello world")
+  插入文本节点：a.appendChild(txt);
+
+insertBefore在已有元素前插入一个新元素
+  parentElement.insertBefore(newElement,targetEelement);
+  targetEelement.parentNode.insertBefore(newElement,targetEelement)
+insertA

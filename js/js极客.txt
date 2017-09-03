@@ -1,0 +1,193 @@
+介绍
+实现
+  <script></script>
+  可放head body中
+  不限制数量
+  通常会把脚本放置在head中，以不干扰页面内容
+输出
+  document.write("")
+语法
+  语句;
+  分号;
+  标识符;以字母，下划线，或$符号开始;
+  JS关键字;
+  对大小写敏感;
+  空格;会忽略多余空格;
+  代码换行;
+  保留字;
+注释
+  单行注释;
+  多行注释;
+变量
+  变量时用来储存信息的“容器”;
+数据类型
+  字符串
+  数字
+  布尔
+  数组
+  对象
+  空
+  未定义
+  null可清除变量
+语法
+  运算符
+    算术运算符
+      +、-、*、/、%、++、--
+    赋值运算符
+      =、+=、-=、*=、/=、%=
+      x+=y，相当于x=x+y
+    字符串操作
+      拼接
+    比较运算符
+      ==、===、!=、!==、>、<、>=、<=
+    逻辑运算符
+      &&、||、!
+    条件运算符
+      例如：x<10? "x比10小":"x比10大"
+  条件语句
+    if..else
+    swich
+  循环语句
+    for
+    for/in(用于遍历数组或者对象的属性)
+    while
+    do...while
+  跳转语句
+    break
+    continue
+函数
+  了解函数
+    函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块。
+  定义函数
+    function 函数名(){
+      代码块;
+    }
+    function必须小写;调用函数时，函数名必须相同
+  函数调用
+    1、在<script>标签内调用；函数名()
+    2、在HTML文件中调用；onclick="函数名()"
+  带参数的函数
+    在函数的调用中，也可以传递值，这些值被称为参数;
+    参数的个数可以为任意多，用","隔开
+    注意：参数在传递时，其顺序必须一致
+    参数意义：通过传递参数的个数以及参数的类型不同完成不同的功能
+  带返回值的函数
+    将函数的值返回给调用他的地方
+    通过return语句就可以实现
+    return语句后面的代码都不会执行
+局部变量和全局变量
+  函数中的变量是局部变量
+  全局变量任何地方都可以使用
+  函数内部声明的全局变量，在函数被调用后它才会生效
+异常捕获
+  异常：当js引擎执行js代码时，发生了错误，导致程序停止运行
+  异常抛出：当异常产生，并且将这个异常生成一个错误信息
+  异常捕获：
+    try{发生异常的代码块}catch(err){错误信息处理如:alert(err)}
+  throw语句：通过throw语句创建一个自定义错误
+事件
+  什么是事件：可以被js侦测到的行为
+  onclick/onMouseOver/onMouseOut
+事件流
+  描述的是页面中接受事件的顺序：
+  1事件冒泡：由最具体的元素接收。然后逐级向上传播至最不具体的元素的节点(文档)
+  2事件捕获：最不具体的节点先接收事件，而最具体的节点应该是最后接收事件
+事件处理
+  1、HTML事件处理：直接添加到HTML结构中
+    <button onclick="demo()">
+  2、DOM0级事件处理：把一个函数赋值给一个事件处理程序属性
+    btn=document.getElementById("btn");
+    btn.onclick=function(){};
+  3、DOM2级事件处理：
+    addEventListener("事件名"，"事件处理函数"，"布尔值")
+    true:事件捕获
+    false:事件冒泡
+    removeEventListener("事件名","事件处理函数")
+      btn.addEventListener("click",function(){alert("DOM2级事件处理程序")})
+  4、IE事件处理程序(ie<=8)
+    attachEvent
+    detachEvent
+      if(btn.addEventListener){btn.addEventListener("click",demo)}else if(btn.attachEvent){btn.attachEvent("onclick",demo)}else{btn.onclick-demo()}
+事件对象
+  在触发DOM事件的时候都会产生一个对象
+  事件对象event：
+    1、type：获取事件类型
+    2、target：获取事件目标
+    3、stopPropagation():阻止事件冒泡
+        btn.addEventListener("click",demo);
+        function demo(event){
+        event.stopPropagation();}
+    4、preventDefault():阻止事件默认行为
+        event.preventDefault();
+DOM
+  简介
+    当网页被加载时，浏览器会创建页面的文档对象模型
+  操作HTML
+    js能够改变页面中的所有HTML元素
+    js能够改变页面中的所有HTML属性
+    js能够改变页面中的所有CSS样式
+    js能够对页面中的所有事件做出反应
+  操作CSS
+    语法：document.getElementById(id).style.property=new style
+  DOMEventListener
+    方法：addEventListener();
+          removeEventListener();
+    addEventListener("click", function(){this.style.backgroundColor = "red";});用于向指定元素添加事件句柄
+    removeEventListener("click", function(){this.style.backgroundColor = "red";});移除方法添加的事件句柄
+js内置对象
+  什么是对象：js中的所有事物都是对象，字符串，数值，数组，函数；每个对象带有属性和方法；js允许自定义对象；
+  自定义对象：
+    1、定义并创建对象实例
+      people = new Object();
+      people.name = "jakchen";
+      people.age  = "30"
+      对象字面量：people={name:"jakchen",age:"30"}
+    2、使用函数来定义对象，然后创建新的对象实例
+      function people(name,age){this.name=name;this.age=age;}
+      son = new people("jakchen",30);
+      访问：son.name,son.age
+  String字符串对象
+    String对象用于处理已有的字符串
+    字符串可以用双引号或单引号
+    属性：length
+    2、在字符串中查找字符串：indexOf();
+    3、内容匹配：match()
+    4、替换内容:replace()
+    5、字符串大小写转换：toUpperCase();toLoverCase()
+    6、字符串转换为数组:string>split()
+  Date日期对象
+    日期对象用于处理日期和时间
+    获得当然的日期
+
+  Array数组对象
+    使用单独的变量名来存储一系列的值
+    创建：var myArray = ["hello","world"]
+    访问：通过指定数组名以及索引号码，可以访问某个特定的元素
+    数组常用方法：
+      concat():合并数组；数组a，数组b，a.concat(b);
+      sort():排序;a.sort();
+      push():末尾追加元素
+      reverse():数组元素翻转
+  Math对象
+DOM对象控制HTML
+  方法：getElementByName() 获取name
+        getElementByTagName()
+        getAttribute()
+        setAttribute()
+        childNodes()
+        parentNode()
+        createElement()
+        createTextNode()
+        insertBefor()
+        removeChild()
+        offsetHeight()
+        scrollHeight()
+浏览器对象
+  Window对象
+  计时器
+  history对象
+  location对象
+  screen对象
+  navigator对象
+  弹出窗口
+  cookies

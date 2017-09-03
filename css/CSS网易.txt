@@ -1,8 +1,5 @@
 网易微专业前端学习笔记http://www.jianshu.com/p/4ce1708ea072
 
-省略CSS前缀的方法：使用prefix-free插件
-<script src="http://leaverou.github.com/prefixfree/prefixfree.min.js"></script>
-
 2、css
 html表达结构、css表达样式，
 样式和结构是分离的。
