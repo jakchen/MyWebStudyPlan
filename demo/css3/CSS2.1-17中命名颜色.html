@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS2.1-17种命名颜色</title>
+  <script>
+window.onload=function(){
+  var aDiv=document.getElementsByTagName("div");
+  var txt;
+  for (var i = 0; i<aDiv.length; i++) {
+    txt=aDiv[i].className;
+    aDiv[i].innerHTML=txt;
+  }
+}
+  </script>
+  <style>
+div{
+  width: 100px;height: 100px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  float: left;
+  margin: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.aqua{background-color: aqua;}
+.fuchsia{background-color: fuchsia;}
+.lime{background-color: lime;}
+.olive{background-color: olive;}
+.red{background-color: red;}
+.white{background-color: white;}
+.black{background-color: black; color:#fff;}
+.gray{background-color: gray;}
+.maroon{background-color: maroon;}
+.orange{background-color: orange;}
+.silver{background-color: silver;}
+.yellow{background-color: yellow;}
+.blue{background-color: blue;}
+.green{background-color: green;}
+.navy{background-color: navy;color:#fff;}
+.purple{background-color: purple;}
+.teal{background-color: teal;}
+
+  </style>
+</head>
+<body>
+<h1>CSS2.1规范定义了17种命名颜色</h1>
+<div class="aqua"></div>
+<div class="fuchsia"></div>
+<div class="lime"></div>
+<div class="olive"></div>
+<div class="red"></div>
+<div class="white"></div>
+<div class="black"></div>
+<div class="gray"></div>
+<div class="maroon"></div>
+<div class="orange"></div>
+<div class="silver"></div>
+<div class="yellow"></div>
+<div class="blue"></div>
+<div class="green"></div>
+<div class="navy"></div>
+<div class="purple"></div>
+<div class="teal"></div>
+</body>
+</html>
